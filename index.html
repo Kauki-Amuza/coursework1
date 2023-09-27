@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+    
+        }
+    
+
+        .container1 {
+            background-image: url('./1b.jpg'); /* Image background for the first div */
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow-y: scroll; /* Enable vertical scroll */
+        }
+        .container2 {
+            background-color: rgba(3, 27, 105, 0.8); /* Slightly transparent white background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px; /* max width */
+        }
+        h1 {
+            text-align: center;
+            color: #25bae7;
+        }
+        h2 {
+            color: #9c9595;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            width: 30%; /* label width */
+            display: inline-block;
+            vertical-align: top;
+            padding-top: 5px; /* Align label text vertically */
+        }
+        .input-group input[type="text"],
+        .input-group input[type="tel"],
+        .input-group input[type="email"],
+        .input-group input[type="password"],
+        .input-group input[type="number"],
+        .input-group input[type="date"],
+        .input-group textarea {
+            width: 90%; /* input width */
+            padding: 12px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f5f5f5;
+        }
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0c2641;
+        }
+        .error {
+            color: rgb(223, 129, 129);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container1">
+        <a href="./table.html">Friends Table</a>
+        <!-- The first div with image background and horizontal scroll -->
+        <div class="container2">
+            <!-- The second div with slightly transparent white background -->
+            <h1>Event Registration Form</h1>
+            <form action="#" method="post" id="registrationForm">
+                <h2>Register for the Event</h2>
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+                <!-- Add more form elements here -->
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="error" id="passwordError"></span>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age">
+                </div>
+                <div class="input-group">
+                    <label for="birthdate">Birthdate:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+                <div class="input-group">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="agree">Agree to Terms:</label>
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <span class="error" id="agreeError"></span>
+                </div>
+
+                <!-- Radio buttons -->
+                <div class="input-group">
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="input-group">
+                    <label>Interests:</label>
+                    <input type="checkbox" id="music" name="interests" value="music">
+                    <label for="music">Music</label>
+                    <input type="checkbox" id="sports" name="interests" value="sports">
+                    <label for="sports">Sports</label>
+                </div>
+
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript validation code
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('registrationForm');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Reset previous error messages
+                const errorElements = form.querySelectorAll('.error');
+                errorElements.forEach(element => {
+                    element.textContent = '';
+                });
+
+                //form validation
+                const name = form.querySelector('#name').value.trim();
+                const email = form.querySelector('#email').value.trim();
+                const password = form.querySelector('#password').value.trim();
+                const agree = form.querySelector('#agree').checked;
+
+                let isValid = true;
+
+                if (name === '') {
+                    showError('name', 'Name is required');
+                    isValid = false;
+                }
+
+                if (email === '') {
+                    showError('email', 'Email is required');
+                    isValid = false;
+                } else if (!isValidEmail(email)) {
+                    showError('email', 'Please enter a valid email address');
+                    isValid = false;
+                }
+
+                if (password === '') {
+                    showError('password', 'Password is required');
+                    isValid = false;
+                }
+
+                if (!agree) {
+                    showError('agree', 'You must agree to the terms');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // If validation passes, you can submit the form
+                    form.submit();
+                }
+            });
+
+            // Function to validate email format
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Function to display error messages
+            function showError(fieldId, message) {
+                const errorElement = form.querySelector(`#${fieldId}Error`);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
