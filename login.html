@@ -141,7 +141,7 @@
         
         align-items: center;
         width: 100%;
-        height:90%
+
 
     }
     form{
@@ -152,7 +152,8 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         max-width: 60%; /* max width */
         margin: auto;
-        margin-top: 40px; /* Ensure content starts below the fixed navbar */   
+        margin-bottom: 5px;
+        margin-top: 0; /* Ensure content starts below the fixed navbar */   
     }
     h1{
         text-align: center;
@@ -182,11 +183,12 @@
         background:transparent;
         border-bottom: 2px solid #fff;
         outline: none;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
     .btn-container {
         text-align: center;
+        margin-bottom:15px ;
         
     }
 
@@ -217,7 +219,7 @@
         transform: translateY(-50%);
         cursor: pointer;
         text-align: right; /* Align the text to the right */
-        margin-top: 10px; /* Optional: Add some top margin for spacing */
+        margin-top: 5px; /* Optional: Add some top margin for spacing */
     }
     .icons{
         position: absolute;
@@ -242,10 +244,14 @@
         text-align: center; /* Center-align text */
         font-size: 14px; /* Font size */
         transition: bottom 0.3s; /* Add smooth transition effect */
-        height:10%;
-        position: fixed;
         bottom: 0;
         width: 100%;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        z-index: 0;
     }
 
     .footer-links {
@@ -270,12 +276,34 @@
     .remember-me {
         display: flex;
         align-items: center;
-        margin-bottom: 15px; /* Adjust margin as needed */
+        margin-bottom: 5px; /* Adjust margin as needed */
     }
 
     .remember-me label {
         margin-left: 10px; /* Adjust spacing between checkbox and text */
-        margin-top: 25px;
+        margin-top: 5px;
+    }
+    .linkbtn{
+        display: flex;
+        background: transparent;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    .linkbtn button{
+        background-color: #ff1100;
+        border-radius: 5px 5px;
+        width: 100px;
+        align-items: center;
+        
+    }
+    .linkbtn a{
+        text-decoration: none;
+        color:white;
+    }
+    .linkbtn button:hover{
+    background-color: rgb(255, 0, 212);
     }
 
 
@@ -317,6 +345,11 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="linkbtn">
+            <a href="./table.html"><button>Friends Table</button></a>
+            <a href="./cv.html"><button>CV</button></a>
+            <a href="./index.html"><button>Registration</button></a>
         </div>
         <form action="POST" method="" id="login-form">
             <h1>LOGIN</h1>
@@ -410,9 +443,4 @@
     document.getElementById("currentYear").textContent = currentYear;
 </script
 </html>
-
-
-
-
-
 
