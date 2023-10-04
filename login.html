@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Amuza TCK official website.
+        Visit for the latest news, tour dates, browse the photo gallery, 
+        listen to Amuza TCK's music and watch videos.">
+    <meta name="keywords" content="Amuza TCK,
+        Amuza TCK News, Amuza TCK Music, Amuza TCK Photos,
+        Amuza TCK Videos, Amuza TCK Updates,
+        Amuza TCK Tour, Amuza TCK Shows">    
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2">
+    <title>Login</title>
+</head>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<style>
+    *{
+        margin:0;   /*    */
+        padding:0;  /*    */
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-image: url('./1b.jpg'); /* Image background for the first div */
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+    .menubar {
+        background-color: black; /* Background color of the menu bar */
+        color: #fff; /* Text color */
+        padding: 10px; /* Padding to add some space inside the menu bar */
+        display: flex; /* Display children elements in a row */
+        justify-content: space-between; /* Space between left and right elements */
+        align-items: center; /* Vertically center elements */
+        transition: top 0.3s; /* Add smooth transition effect */
+        border-bottom: 5px;
+        font-size: 14px; /* Font size */
+    }
+    .logo-div{
+        
+        font-size: 20px; /* Reduce font size for smaller screens */
+        display: flex; /* Display content within divs in a row */
+        align-items: center; /* Vertically center content */
+    }
+    .nav-div{
+        padding: 5px 10px; /* Padding for content inside divs */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    .Logo1{
+        font-weight: bold; /* Make the text bold */
+    }
+    .Logo2{
+        font-weight: bold;
+        color: red;
+        font-style: italic;
+        font-family: cursive; /* Apply italic and caligraphic style */
+     
+    }
+    .btns{
+        display: flex;
+        padding: 0 20px; /* Padding for content inside divs */
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+    /* Style for the dropdown container */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropbtn{
+        border-radius: 5px;
+        padding: 10px 10px;
+        background-color: #ce1205;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+        /* Style for the dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #351a1a;
+        min-width: 100px;
+        z-index: 1; /*  define order of overlapping html elements. works on positioned elements eg absolute, relative, fixed*/
+    }
+
+        /* Style for dropdown links */
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #444;
+    }
+
+        /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+        /* Style for the "Subscribe" button */
+    .subscribe-btn {
+        padding: 10px 10px;
+        background-color: #f44336;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; /* Added border radius */
+    }
+        /* Style for the links on the right */
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-right: 5px; /* Reduce margin between links for smaller screens */
+        font-weight: bold;
+    }
+    /* Style for the links on the right */
+    .nav-links {
+        display: flex; /* Display links in a row format */
+        align-items: center; /* Center items vertically */
+        
+    }
+    li{
+        display:flex;
+        padding: 0 20px;
+        
+    }
+
+    .C1{
+        
+        align-items: center;
+        width: 100%;
+        height:90%
+
+    }
+    form{
+        
+        background-color: rgba(255, 209, 3, 0.63);
+        padding: 20px; /* Add padding for visibility */
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        max-width: 60%; /* max width */
+        margin: auto;
+        margin-top: 40px; /* Ensure content starts below the fixed navbar */   
+    }
+    h1{
+        text-align: center;
+        color: rgb(35, 43, 44);
+    }
+    .input-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .input-container label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #777;
+        pointer-events: none;
+        transition: 0.3s;
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .input-container input {
+        width: 90%;
+        padding: 10px;
+        border: none;
+        background:transparent;
+        border-bottom: 2px solid #fff;
+        outline: none;
+        margin-top: 40px;
+    }
+
+    .btn-container {
+        text-align: center;
+        
+    }
+
+    .btn-container button {
+        background-color: #ff0000;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .btn-container a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .btn-container button:hover{
+        background-color: rgb(255, 0, 212);
+    }
+    .Fpswd a{
+        color: rgb(17, 0, 255);
+        font-weight: bold;  
+        text-decoration: none; 
+             
+    }
+    .Fpswd{
+        
+        margin-top: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        text-align: right; /* Align the text to the right */
+        margin-top: 10px; /* Optional: Add some top margin for spacing */
+    }
+    .icons{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px; /* Adjust the right distance as needed */
+        pointer-events: none;
+
+    }
+    ion-icon {
+     stroke-width: 100px;
+     font-size: 20px;
+     -webkit-text-stroke-color: aliceblue;
+    }
+    
+
+    /* Footer Styles */
+    footer {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Text color */
+        padding: 10px 0; /* Padding for content */
+        text-align: center; /* Center-align text */
+        font-size: 14px; /* Font size */
+        transition: bottom 0.3s; /* Add smooth transition effect */
+        height:10%;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+
+    .footer-links a {
+        color: #fff; /* Link text color */
+        text-decoration: none; /* Remove underlines */
+        margin: 0 10px; /* Margin between links */
+    }
+
+    .footer-links a:hover {
+        text-decoration: none; /* Underline on hover */
+    }
+    footer p{
+        display: flex;
+        align-items: center;
+        margin-left:35%;
+        
+    }
+    .remember-me {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px; /* Adjust margin as needed */
+    }
+
+    .remember-me label {
+        margin-left: 10px; /* Adjust spacing between checkbox and text */
+        margin-top: 25px;
+    }
+
+
+
+</style>
+<body>
+    <div class="C1">
+        <div class="menubar" id="navbar">
+            <div class="logo-div">
+               <!-- <b>Kauki</b>  bolds -->
+                <!-- <i>Amuza</i> italics -->
+                <!-- Using <span> tags to enclose text -->
+                <span class="Logo1">Kauki</span>
+                <span class="Logo2">Amuza</span>
+                
+            </div>
+            <div class="nav-div">
+                <!-- Navigation Links -->
+                <ul class="nav-links">
+                    <li><a href="#"><ion-icon name="home-outline"></ion-icon>Home</a></li>
+                    <li><a href="#"><ion-icon name="musical-notes-outline"></ion-icon>Music</a></li>
+                    <li><a href="#"><ion-icon name="airplane-outline"></ion-icon>Tour</a></li>
+                    <li><a href="#"><ion-icon name="storefront-outline"></ion-icon>Store</a></li>
+                    <li><a href="#"><ion-icon name="call-outline"></ion-icon>Contact</a></li>
+                    <li>
+                        <!-- Dropdown for Signin -->
+                    <div class="dropdown">
+                        <button class="dropbtn">Signin</button>
+                        <div class="dropdown-content">
+                            <a href="#">Login</a>
+                            <a href="#">Sign Up</a>
+                        </div>
+                    </div>
+                    </li>
+                    <li>
+                        <!-- Subscribe Button -->
+                        <button class="subscribe-btn">Subscribe</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form action="POST" method="" id="login-form">
+            <h1>LOGIN</h1>
+            <div class="input-container">
+                <span class="icons"><ion-icon name="person-add-outline"></ion-icon></span>
+                <input type="text" id="username" name="username" required>
+                <label for="username">Username</label>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="input-container">
+                <span class="icons"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <span class="error" id="passwordError"></span>
+            </div>
+            <p class="Fpswd"><a href="#">Forgot Password</a></p>
+            <!-- Remember Me Checkbox -->
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember Me</label>
+                
+            </div>
+            <div class="btn-container">
+                <button type="submit"><a href="#"> Login</a></button>
+            </div>
+            <p class="Fpswd">Dont have account:<a href="#"> Sign Up</a></p>
+        
+            
+        </form>       
+            
+    </div>
+    <footer>
+        <div class="footer-links">
+            <!-- Music Platform Links -->
+            <a href="https://www.youtube.com/">YouTube</a>
+            <a href="https://www.spotify.com/">Spotify</a>
+            <a href="https://www.amazon.com/">Amazon Music</a>
+            <a href="https://www.apple.com/music/">Apple Music</a>
+            <!-- Add more music platform links as needed -->
+        </div>                
+        <div>
+            &copy; <span id="currentYear"></span>
+            <span class="Logo1">  Kauki</span>
+            <span class="Logo2">Amuza</span><span> . All Rights Reserved.</span>
+        </div>
+              
+    </footer>
+</body>
+<script>
+    // JavaScript code can be added here for form validation or other functionalities
+    document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('login-form');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                //form validation
+                const name = form.querySelector('username').value.trim();
+                const password = form.querySelector('password').value.trim();
+                const agree = form.querySelector('remember').checked;
+
+                let isValid = true;
+
+                if (name === '') {
+                    showError('name', 'Name is required');
+                    isValid = false;
+                }
+
+                if (password === '') {
+                    showError('password', 'Password is required');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // If validation passes, you can submit the form
+                    form.submit();
+                }
+            });
+
+            // Function to display error messages
+            function showError(fieldId, message) {
+                const errorElement = form.querySelector(`#${fieldId}Error`);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                }
+            }
+    });
+
+    
+    const currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = currentYear;
+</script
+</html>
+
+
+
+
+
+

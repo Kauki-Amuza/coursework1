@@ -52,11 +52,37 @@
         tr:hover {
             background-color: #ddd;
         }
+        .linkbtn{
+            display: flex;
+            background: transparent;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .linkbtn button{
+            background-color: #ff1100;
+            border-radius: 5px 5px;
+            width: 100px;
+            align-items: center;
+            height:30px;
+        }
+        .linkbtn a{
+            text-decoration: none;
+            color:white;
+        }
+        .linkbtn button:hover{
+        background-color: rgb(255, 0, 212);
+        }
     </style>
 </head>
 <body>
     <div class="container1">
-        <a href="./index.html"><button>Registration-Form</button></a><a href="./cv.html"><button>CV</button></a>
+        <div class="linkbtn">
+            <a href="./index.html"><button>Friends Table</button></a>
+            <a href="./cv.html"><button>CV</button></a>
+            <a href="./login.html"><button>FrontEnd</button></a>
+
+        </div>
         <!-- The first div with image background and horizontal scroll -->
                 <h1>Friends' Contact Information</h1>
             <table>

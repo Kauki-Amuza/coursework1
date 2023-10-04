@@ -4,24 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Registration Form</title>
     <style>
-        body {
+       *{
+        margin:0;
+        padding: 0;
+       }
+       body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-    
-        }
-    
-
-        .container1 {
             background-image: url('./1b.jpg'); /* Image background for the first div */
             background-size: cover;
             background-attachment: fixed;
-            width: 100%;
+            background-position: center;
             height: 100vh; /* Full viewport height */
-            overflow-y: scroll; /* Enable vertical scroll */
         }
         .container2 {
-            background-color: rgba(3, 27, 105, 0.8); /* Slightly transparent white background */
+            background-color: rgba(53, 175, 79, 0.8); /* Slightly transparent white background */
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             margin: 20px auto;
@@ -67,7 +65,7 @@
             margin-top: 5px;
         }
         input[type="submit"] {
-            background-color: #007BFF;
+            background-color: #ff1100;
             color: white;
             padding: 12px 30px;
             border: none;
@@ -76,17 +74,44 @@
             font-size: 16px;
         }
         input[type="submit"]:hover {
-            background-color: #0c2641;
+            background-color: #00ff22;
         }
         .error {
             color: rgb(223, 129, 129);
+        }
+        .linkbtn{
+            display: flex;
+            background: transparent;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .linkbtn button{
+            background-color: #ff1100;
+            border-radius: 5px 5px;
+            width: 100px;
+            align-items: center;
+            height:30px;
+        }
+        .linkbtn a{
+            text-decoration: none;
+            color:white;
+        }
+        .linkbtn button:hover{
+        background-color: rgb(255, 0, 212);
         }
     </style>
 </head>
 <body>
     
     <div class="container1">
-        <a href="./table.html"><button>Friends Table</button></a> <a href="./cv.html"><button>CV</button></a>
+        <div class="linkbtn">
+            <a href="./table.html"><button>Friends Table</button></a>
+            <a href="./cv.html"><button>CV</button></a>
+            <a href="./login.html"><button>FrontEnd</button></a>
+
+        </div>
+
         <!-- The first div with image background and horizontal scroll -->
         <div class="container2">
             <!-- The second div with slightly transparent white background -->
@@ -223,3 +248,7 @@
     </script>
 </body>
 </html>
+
+
+
+
