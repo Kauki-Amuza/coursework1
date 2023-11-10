@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Reg-pages</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'Poppins', 'sans-serif';
+    }
+    header{
+        
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+        position: fixed;
+    }
+    .log .logo{
+        font-size: 2em;
+        color: white;
+        user-select: none;
+        font-weight: 900;
+        margin-left: 15px;
+    }
+    .navbar a{
+        text-decoration: none;
+        color: white;
+        position: relative;
+        font-size: 1.2em;
+        font-weight: 900;
+        margin-left: 40px;
+    }
+    .navbar .btnup{
+        width: 110px;
+        height: 35px;
+        border: 3px solid white;
+        outline: none;
+        border-radius: 7px;
+        font-weight: 900;
+        color: white;
+        font-size: 1.3em;
+        cursor: pointer;
+        margin-left: 40px;
+        background-color: #162938;
+        transition: 0.5s;
+    }
+    .navbar .btn:hover{
+        background: white;
+        color: grey;
+    }
+    .navbar a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        bottom: -6px;
+        background: white;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform .5s;
+
+    }
+    .navbar a:hover::after{
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    body{
+        width: 100%;
+        align-items: center;
+        background-image: url(14.jpeg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        
+    }
+
+    .wraper{
+        position: relative; 
+        width: 350px;
+        height: 460px;
+        background: transparent;
+        border: 3px solid rgb(255, 255, 255, 5);
+        border-radius: 20px;
+        margin-top: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 30px rgb(0, 0, 0, .5);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform .5s ease, height .2s ease;
+        transform: scale(0);
+    }
+    .wraper .login-form{
+        width: 100%;
+        padding: 40px;
+        margin: 10px 0;
+    }
+    .wraper h2{
+        text-align: center;
+        font-size: 2em;
+        font-weight: 900;
+        color: red;
+        margin-bottom: 10px;
+
+    }
+    .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom: 3px solid black;
+        margin: 30px 0;
+    }
+    .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1em;
+        color:white;
+        font-weight: 900;
+        pointer-events: none;
+        transition: .5s;
+    }
+    .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: #b4ff05;
+        font-weight: 900;
+        padding: 0 35px 0 5px;
+    }
+    .input-box .icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2em;
+        color: brown;
+        line-height: 57px;
+    }
+    .input-box input:focus~label,
+    .input-box input:valid~label{
+        top: -5px;
+    }
+    .rem-forget{
+        font-size: 1em;
+        font-weight: 900;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+    .rem-forget label input{
+        accent-color: #162938;
+        margin-right: 5px;
+    }.rem-forget a{
+        color: blue;
+        text-decoration: none;
+    }
+    .rem-forget a:hover{
+        text-decoration: underline;
+    }
+    .btnlog{
+        width: 80%;
+        height: 45px;
+        background: red;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 1em;
+        color: white;
+        font-size: 900;
+        margin: 20px 20px 20px 20px ;
+        
+    }
+    .register{
+        color: white;
+        font-size: 1em;
+        font-weight: 900;
+        margin: 5px 0 10px;; 
+    }
+    .register p a{
+        color: blue;
+        text-decoration: none;
+    }
+    .register p  a:hover{
+        text-decoration: underline;
+    }
+    .wraper .close-icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        font-weight: 900;
+        font-size: 2em;
+        align-items: center;
+        background: #162938;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        display: flex;
+        backdrop-filter: blur(20px);
+    }
+    .wraper .close-icon1{
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        font-weight: 900;
+        font-size: 2em;
+        align-items: center;
+        background: #162938;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        display: flex;
+        backdrop-filter: blur(20px);
+    }
+
+    .img{
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        background-image: url(1b.jpg) ;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .log{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5px;
+        margin: 5px;
+    }
+    .wraper .login-form{
+        /* display: none; */
+        transition: transform .18s ease;
+        transform: translateX(0 );
+    }
+    .wraper .reg-form{
+        position: absolute;
+        transition: none;
+        transform: translateX(400px);
+        
+    }
+    .wraper.active{
+        height: 500px;
+    }
+    .wraper.active .login-form{
+        transition: none;
+        transform: translateX(-400px);
+        display: none;
+    }
+    .wraper.active .reg-form{
+        transition: none;
+        transition: transform .18s ease;
+        transform: translateX(0 );
+        
+        
+    }
+    .wraper.active-popup{
+        transform: scale(1);
+    }
+    .linkbtn{
+        position: relative;
+        display: flex;
+        background: transparent;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 80px;
+        margin-bottom: 0;
+        padding: 15px 40px
+
+    }
+    .linkbtn a{
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        background-color: #7a0000;
+        border-radius: 10px;
+        width: auto;
+        height: 40px;
+        text-align: center;
+        padding: 10px 20px;
+        text-align: center;
+        
+    }
+    
+
+</style>
+<body>
+
+    <header>
+        <div class="log">
+            <div class="img"></div>
+            <h2 class="logo">Logo</h2>
+        </div>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <button class="btnup">Login</button>
+        </nav>
+
+    </header>
+    <div class="linkbtn">
+        <a href="#">Table of Friends</a>
+        <a href="./cv.html">CV</a>
+        <a href="./login.html">FrontEnd</a>
+        <a href="./index.html">Reg. Form</a>
+        <a href="./calc.html">Calculator</a>
+        <a href="./js.html">Page popups</a>
+        
+    </div>
+    <div class="wraper">
+        <span class="close-icon1"><ion-icon name="close"></ion-icon></span>
+        <div class="login-form">
+            <span class="close-icon"><ion-icon name="close"></ion-icon></span>
+            <h2>LOGIN</h2>
+            <form action="">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div> 
+                <div class="rem-forget">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btnlog">Login</button>
+                <div class="register">
+                    <p>Dont have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+
+        
+        <div class="reg-form">
+            <h2>REGISTRATION</h2>
+            <form action="">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-add"></ion-icon></ion-icon></span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div> 
+                <div class="rem-forget">
+                    <label><input type="checkbox">Agree to the Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btnlog">SignUp</button>
+                <div class="register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+<script>
+
+    const wraper=document.querySelector('.wraper');
+    const LoginLink=document.querySelector('.login-link');
+    const RegisterLink=document.querySelector('.register-link');
+    const Loginpopup=document.querySelector('.btnup');
+    const Closeicon=document.querySelector('.close-icon');
+    const Closeicon1=document.querySelector('.close-icon1');
+
+    RegisterLink.addEventListener('click', ()=>{
+        wraper.classList.add('active');
+    });
+    LoginLink.addEventListener('click', ()=>{
+        wraper.classList.remove('active');
+    });
+    Loginpopup.addEventListener('click', ()=>{
+        wraper.classList.add('active-popup');
+    });
+    Closeicon.addEventListener('click', ()=>{
+        wraper.classList.remove('active-popup');
+    });
+    Closeicon1.addEventListener('click', ()=>{
+        wraper.classList.remove('active-popup');
+    });
+
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
